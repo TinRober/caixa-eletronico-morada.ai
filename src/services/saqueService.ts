@@ -1,29 +1,38 @@
 import { HttpError } from "../utils/httpError";
 
-// serviço responsável por calcular a quantidade de cédulas para um saque
+
+// Serviço responsável por calcular a combinação de notas para um saque
 export class SaqueService {
-  // notas disponíveis no caixa eletrônico (do maior para o menor)
+  // Notas disponíveis no caixa eletrônico
   private static readonly notas = [100, 50, 20, 10, 5, 2] as const;
 
-  // método para calcular a quantidade de cada nota para o valor solicitado
+  // Calcula a combinação de notas para o valor solicitado
   public static calcularSaque(valor: number): Record<number, number> {
     if (!Number.isInteger(valor) || valor <= 0) {
       throw new HttpError(400, "O valor deve ser um inteiro positivo.");
     }
 
+    // Variável para rastrear o valor restante a ser sacado
     let restante = valor;
-
-    // inicializa o objeto resultado com todas as notas zeradas
     const resultado: Record<number, number> = {};
+
+    // inicializa resultado
     for (const nota of SaqueService.notas) {
       resultado[nota] = 0;
     }
-
-    for (const nota of SaqueService.notas) {
-      // regra especial para a nota de 5
-      if (nota === 5 && restante % 2 !== 1) {
-        continue;
+    // caso o restante é ímpar
+    if (restante % 2 !== 0) {
+      if (restante >= 5) {
+        resultado[5] = 1;
+        restante -= 5;
+      } else {
+        throw new HttpError(400, "Não é possível sacar esse valor com as cédulas disponíveis.");
       }
+    }
+
+    // Como o restante agora é sempre par, o algoritmo funciona normalmente
+    for (const nota of SaqueService.notas) {
+      if (nota === 5) continue; 
 
       if (restante >= nota) {
         const quantidade = Math.floor(restante / nota);
