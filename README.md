@@ -149,7 +149,7 @@ Realiza um saque e retorna a quantidade de cédulas necessárias.
 ## Observações
 
 * A lógica do saque é **gulosa**, utilizando sempre a cédula de maior valor possível antes de partir para a próxima (exceto a nota de 5).
-* Apenas os valores que terminam **1 e 3** não podem ser sacados com as cédulas disponíveis.
+* Apenas os valores positivos **1 e 3** não podem ser sacados com as cédulas disponíveis.
 * O projeto utiliza **arquitetura limpa**, separando Controllers, Services e Utils.
 
 ---
