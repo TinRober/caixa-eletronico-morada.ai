@@ -7,7 +7,7 @@ const app: Application = express();
 // Middleware para interpretar JSON
 app.use(express.json());
 
-// Configuração para formatar JSON com 2 espaços
+// Configuração para formatar JSON 
 app.set("json spaces", 2);
 
 // Prefixo da API
