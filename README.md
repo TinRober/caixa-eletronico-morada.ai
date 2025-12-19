@@ -160,7 +160,7 @@ Realiza um saque e retorna a quantidade de cédulas necessárias.
 
 ### Antes de iniciar o projeto
 
-1. **Aprender TypeScript**: Normalmente utilizo JavaScript, mas como a Morada.ai utiliza principalmente TypeScript, decidi me arriscar. Na prática, eu provavelmente usaria Python, que acredito deixaria a aplicação mais simples.
+1. **Aprender TypeScript**: Normalmente utilizo JavaScript, mas como a Morada.ai utiliza principalmente TypeScript, decidi me arriscar.
 
 2. **Definir a lógica do projeto**: Entender como criar a lógica do caixa eletrônico. Atualmente estou lendo *"Entendendo Algoritmos"*, e nele existe um capítulo sobre algoritmos gulosos. Descobri isso depois de já ter desenvolvido parte do projeto, mas pode ser útil adicionar insights futuramente.
 
@@ -212,7 +212,7 @@ Invoke-RestMethod -Uri http://localhost:5000/api/saque -Method POST -Body '{"val
 
 ## Complemento: Testes Automatizados
 
-Durante o processo, também configurei o Jest com TypeScript para garantir que a lógica de saque funcionasse para vários cenários, incluindo:
+Durante o processo, também configurei o Jest (nunca havia utilizado anteriormente) com TypeScript para garantir que a lógica de saque funcionasse para vários cenários, incluindo:
 
 - valores pares  
 - valores ímpares  
