@@ -4,7 +4,7 @@ import { HttpError } from "../utils/httpError";
 // Serviço responsável por calcular a combinação de notas para um saque
 export class SaqueService {
   // Notas disponíveis no caixa eletrônico
-  private static readonly notas = [100, 50, 20, 10, 5, ] as const;
+  private static readonly notas = [100, 50, 20, 10, 5, 2] as const;
 
   // Calcula a combinação de notas para o valor solicitado
   public static calcularSaque(valor: number): Record<number, number> {
